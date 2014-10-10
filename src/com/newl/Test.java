@@ -19,6 +19,12 @@ public class Test {
 		q.clear();
 		q.top();
 		q.pop();
+		
+		PQueue<Integer> s = new PQueue<Integer>();
+		s.push(1); s.push(2); s.push(3); s.push(4);
+		for (Integer i : s) {
+			System.out.println(i);
+		} 
 	}
 
 }

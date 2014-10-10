@@ -1,6 +1,7 @@
 package com.newl.col;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.lang.Comparable;
 
 
@@ -16,7 +17,7 @@ class EmptyQueueException extends Exception	{
 	}
 }
 
-public class PQueue<T extends Comparable> {
+public class PQueue<T extends Comparable> implements Iterable<T> {
 	
 	private ArrayList<T> col;
 	
@@ -25,8 +26,6 @@ public class PQueue<T extends Comparable> {
 	}
 	
 	public void push(T t)	{
-		// Azt hittem a legnagyobbat kell a tetejere rakni
-		/*
 		int i = 0;
 		for(i = 0; i < col.size(); i++)	{
 			if (col.get(i).compareTo(t) < 0)	{
@@ -34,8 +33,6 @@ public class PQueue<T extends Comparable> {
 			}
 		}
 		col.add(i, t);
-		*/
-		col.add(t);
 	}
 	
 	public T pop()	{
@@ -74,5 +71,10 @@ public class PQueue<T extends Comparable> {
 	
 	public void clear()	{
 		col.clear();
+	}
+
+	@Override
+	public Iterator<T> iterator() {
+		return col.iterator();
 	}
 }
