@@ -14,6 +14,10 @@ public class BeerTest {
 		BeerRegister bReg = new BeerRegister();
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		System.out.println("Ready, waiting for input...");
+		System.out.println();
+		
 		String s = new String();
 		while (!(s = br.readLine()).equals("exit")){
 			
@@ -24,7 +28,12 @@ public class BeerTest {
 				bReg.add(new Beer(args[1], args[2], str));
 			}
 			else if(args[0].equals("list")){
-				bReg.list();
+				if (args.length == 1)	{
+					bReg.list();
+				}
+				else	{
+					bReg.list(args[1]);
+				}
 			}
 			else	{
 				System.err.println("Not enough arguments, 4 is required.");

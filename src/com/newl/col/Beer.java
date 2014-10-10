@@ -6,6 +6,7 @@ public class Beer {
 	private String style;
 	private double strength;
 	
+	
 	public Beer(String n, String s, double str){
 		setName(n);
 		setStyle(s);
