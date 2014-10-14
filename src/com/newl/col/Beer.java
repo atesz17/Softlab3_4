@@ -1,6 +1,6 @@
 package com.newl.col;
 
-public class Beer {
+public class Beer implements Comparable<Beer>{
 
 	private String name;
 	private String style;
@@ -58,5 +58,11 @@ public class Beer {
 	
 	public String toDatabaseString()	{
 		return (name + "\t" + style + "\t" + strength);
+	}
+
+	@Override
+	public int compareTo(Beer o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

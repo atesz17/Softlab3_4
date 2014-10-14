@@ -46,6 +46,9 @@ public class BeerTest {
 				File f = new File(wd, args[1]);
 				bReg.save(f);
 			}
+			else if((args[0].equals("delete")) && (args.length == 2))	{
+				bReg.delete(args[1]);
+			}
 			else	{
 				System.err.println("Unknown command.");
 			}

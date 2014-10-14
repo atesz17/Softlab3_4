@@ -132,4 +132,10 @@ public class BeerRegister {
 		}
 	}
 	
+	public void delete(String n)	{
+		
+		int index = Collections.binarySearch(pData, n, null);
+		System.out.println(index);
+	}
+	
 }
