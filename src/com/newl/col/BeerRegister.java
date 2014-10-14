@@ -132,10 +132,16 @@ public class BeerRegister {
 		}
 	}
 	
-	public void delete(String n)	{
+	public void delete(Beer b)	{
 		
-		int index = Collections.binarySearch(pData, n, null);
-		System.out.println(index);
+		int index = Collections.binarySearch(pData, b, new NameComparator());
+		if (index >= 0)	{
+			pData.remove(index);
+			System.out.println("Element named: \"" + b.getName() + "\" was removed.");
+		}
+		else	{
+			System.err.println("No beer named: \"" + b.getName() + "\" is in the list.");
+		}
 	}
 	
 }

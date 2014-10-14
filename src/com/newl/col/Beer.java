@@ -14,7 +14,7 @@ public class Beer implements Comparable<Beer>{
 	}
 	
 	public void setName(String n)	{
-		if (n.length() > 0)	{
+		if (n != null)	{
 			name = n;
 		}
 		else	{
@@ -23,7 +23,7 @@ public class Beer implements Comparable<Beer>{
 	}
 	
 	public void setStyle(String s)	{
-		if (s.length() > 0)	{
+		if (s != null)	{
 			style = s;
 		}
 		else	{
@@ -62,7 +62,6 @@ public class Beer implements Comparable<Beer>{
 
 	@Override
 	public int compareTo(Beer o) {
-		// TODO Auto-generated method stub
-		return 0;
+		return name.compareToIgnoreCase(o.getName());
 	}
 }

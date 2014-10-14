@@ -1,0 +1,5 @@
+Heineken	barna	3.1
+Heineken	szoke	1.5
+Soproni	szoke	1.1
+Borsodi	buza	2.6
+Kobanyai	barna	3.0
