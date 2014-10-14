@@ -1,6 +1,7 @@
 package com.newl;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -35,8 +36,18 @@ public class BeerTest {
 					bReg.list(args[1]);
 				}
 			}
+			else if((args[0].equals("load")) && (args.length == 2))	{
+				File wd = new File(System.getProperty("user.dir"));
+				File f = new File(wd, args[1]);
+				bReg.load(f);
+			}
+			else if((args[0].equals("save")) && (args.length == 2))	{
+				File wd = new File(System.getProperty("user.dir"));
+				File f = new File(wd, args[1]);
+				bReg.save(f);
+			}
 			else	{
-				System.err.println("Not enough arguments, 4 is required.");
+				System.err.println("Unknown command.");
 			}
 		}
 	}

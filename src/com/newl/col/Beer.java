@@ -55,4 +55,8 @@ public class Beer {
 	public String toString()	{
 		return "Beer name: " + name + ", style: " + style + ", strength: " + strength;
 	}
+	
+	public String toDatabaseString()	{
+		return (name + "\t" + style + "\t" + strength);
+	}
 }

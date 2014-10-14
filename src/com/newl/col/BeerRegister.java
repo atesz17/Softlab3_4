@@ -1,5 +1,12 @@
 package com.newl.col;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -72,4 +79,57 @@ public class BeerRegister {
 			System.err.println("Possible list arguments: \"name\", \"style\", \"strength\"");
 		}
 	}
+
+	public void load(File f)	{
+		
+		try {
+			FileReader fr = new FileReader(f);
+			BufferedReader br = new BufferedReader(fr);
+			
+			while(true)	{
+				String line = br.readLine();
+				if (line == null){
+					break;
+				}
+				else	{
+					String[] param = line.split("\\t");
+					if (param.length == 3)	{
+						
+						pData.add(new Beer(param[0], param[1], Double.parseDouble(param[2])));
+					}
+					else	{
+						throw new IOException("3 parameters are needed for each beer!");
+					}
+				}
+			}
+			br.close();
+			System.out.println("List updated.");
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void save(File f)	{
+		
+		try {
+			FileWriter fw = new FileWriter(f, true);
+			PrintWriter pw = new PrintWriter(fw);
+			
+			for(Beer b : pData)	{
+				pw.println(b.toDatabaseString());
+			}
+			pw.close();
+			System.out.println("Database exported.");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }
