@@ -1,0 +1,11 @@
+Borsodi	buza	2.6
+Borsodi	buza	2.6
+Heineken	barna	3.1
+Heineken	szoke	1.5
+Heineken	barna	3.1
+Heineken	szoke	1.5
+Kobanyai	barna	3.0
+Kobanyai	barna	3.0
+Maiks	eros	2.2
+Soproni	szoke	1.1
+Soproni	szoke	1.1

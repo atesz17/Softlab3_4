@@ -47,7 +47,10 @@ public class BeerTest {
 				bReg.save(f);
 			}
 			else if((args[0].equals("delete")) && (args.length == 2))	{
-				bReg.delete(new Beer(args[1], null, 0.0));
+				//bReg.delete(new Beer(args[1], null, 0.0));
+				Beer b = new Beer(null, null, 0);
+				b.setStrength(Double.parseDouble(args[1]));
+				bReg.delete(b);
 			}
 			else	{
 				System.err.println("Unknown command.");

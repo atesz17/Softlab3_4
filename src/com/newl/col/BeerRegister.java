@@ -2,10 +2,14 @@ package com.newl.col;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -82,6 +86,20 @@ public class BeerRegister {
 
 	public void load(File f)	{
 		
+		try	{
+			FileInputStream fi = new FileInputStream("adat.ser");
+			ObjectInputStream in = new ObjectInputStream(fi);
+			pData = (ArrayList<Beer>)in.readObject();
+			in.close();
+			
+		}
+		catch(IOException e)	{
+			e.printStackTrace();
+		}
+		catch(ClassNotFoundException e)	{
+			e.printStackTrace();
+		}
+		/*
 		try {
 			FileReader fr = new FileReader(f);
 			BufferedReader br = new BufferedReader(fr);
@@ -113,10 +131,11 @@ public class BeerRegister {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		*/
 	}
 	
 	public void save(File f)	{
-		
+		/*
 		try {
 			FileWriter fw = new FileWriter(f, true);
 			PrintWriter pw = new PrintWriter(fw);
@@ -130,11 +149,21 @@ public class BeerRegister {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		*/
+		try	{
+			FileOutputStream fo = new FileOutputStream("adat.ser");
+			ObjectOutputStream out = new ObjectOutputStream(fo);
+			out.writeObject(pData);
+			out.close();
+		}
+		catch (IOException e)	{
+			e.printStackTrace();
+		}
 	}
 	
 	public void delete(Beer b)	{
 		
-		int index = Collections.binarySearch(pData, b, new NameComparator());
+		int index = Collections.binarySearch(pData, b, new StrengthComparator());
 		if (index >= 0)	{
 			pData.remove(index);
 			System.out.println("Element named: \"" + b.getName() + "\" was removed.");

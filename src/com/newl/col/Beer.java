@@ -1,6 +1,8 @@
 package com.newl.col;
 
-public class Beer implements Comparable<Beer>{
+import java.io.Serializable;
+
+public class Beer implements Serializable{
 
 	private String name;
 	private String style;
@@ -59,9 +61,25 @@ public class Beer implements Comparable<Beer>{
 	public String toDatabaseString()	{
 		return (name + "\t" + style + "\t" + strength);
 	}
-
+	
+	
+	
+	/*
 	@Override
 	public int compareTo(Beer o) {
 		return name.compareToIgnoreCase(o.getName());
 	}
+	*/
+	
+	/*
+	@Override
+	public int compareTo(Beer o)	{
+		if (o.getStrength() > getStrength())
+			return -1;
+		else if (o.getStrength() < getStrength())
+			return 1;
+		else
+			return 0;
+	}
+	*/
 }
